@@ -1,0 +1,10 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global">
+
+    <ltng:require afterScriptsLoaded="{!c.doInit}" scripts="{!join(',',
+        $Resource.agGridCommunityJs
+        )}" />
+    
+	<div style="height: 500px; width: 800px;">
+        <div id="myGrid" style="height: 100%; width:100%;" class="ag-theme-balham"></div>
+    </div>
+</aura:component>
