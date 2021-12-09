@@ -15,6 +15,7 @@
 !/force-app/main/default/pages
 !/force-app/main/default/components
 !/force-app/main/default/staticresources
+!/force-app/main/default/applications
 !/manifest/package.xml
 !sfdx-project.json
 
