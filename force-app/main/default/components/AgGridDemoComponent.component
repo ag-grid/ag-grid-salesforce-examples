@@ -1,5 +1,6 @@
 <apex:component>
     <apex:includeScript value="{!$Resource.agGridCommunityJs}"/>
+    <apex:stylesheet value="{!$resource.agThemeAlpineCss}"/>
     <head>
         <apex:slds />
         <script type="text/javascript">
@@ -30,6 +31,6 @@
     </head>
 
     <div style="height: 500px; width: 800px;">
-        <div id="myGrid" style="height: 100%; width:100%;" class="ag-theme-balham"></div>
+        <div id="myGrid" style="height: 100%; width:100%;" class="ag-theme-alpine"></div>
     </div>
 </apex:component>

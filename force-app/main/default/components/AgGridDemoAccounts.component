@@ -1,0 +1,54 @@
+<apex:component controller="AgGridDemoAccountsController">
+    <apex:includeScript value="{!$Resource.agGridCommunityJs}" />
+    <apex:stylesheet value="{!$resource.agThemeAlpineCss}" />
+
+    <head>
+        <apex:slds />
+        <script type="text/javascript">
+            const columnDefs = [
+                { field: "Name" },
+                { field: "AccountNumber" },
+                {
+                    field: "NumberOfEmployees",
+                    valueFormatter: params => {
+                        return params.value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    }
+                },
+                { field: "Industry" },
+                {
+                    field: "Rating",
+                    cellStyle: params => {
+                        if (params.value === 'Hot') {
+                            return { backgroundColor: 'lightgreen' };
+                        }
+                        else if (params.value === 'Warm') {
+                            return { backgroundColor: 'lightyellow' };
+                        }
+                        else if (params.value === 'Cold') {
+                            return { backgroundColor: 'orangered' };
+                        }
+                        return null;
+                    }
+                },
+                { field: "Type" }
+            ];
+
+            const rowData = {!jsonAccountsData};
+            // let the grid know which columns and what data to use
+            const gridOptions = {
+                columnDefs: columnDefs,
+                rowData: rowData
+            };
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var gridDiv = document.querySelector('#myGrid');
+                const grid = new agGrid.Grid(gridDiv, gridOptions);
+                grid.gridOptions.api.sizeColumnsToFit();
+            });    
+        </script>
+    </head>
+
+    <div style="height: calc(100vh); width: 100%;">
+        <div id="myGrid" style="height: 100%; width:100%;" class="ag-theme-alpine"></div>
+    </div>
+</apex:component>

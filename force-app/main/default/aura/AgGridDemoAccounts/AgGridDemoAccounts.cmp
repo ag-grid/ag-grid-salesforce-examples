@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global">
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" controller="LightningAgGridDemoAccountsController" access="global">
 
     <ltng:require afterScriptsLoaded="{!c.doInit}" scripts="{!join(',',
         $Resource.agGridCommunityJs
@@ -6,7 +6,7 @@
 
     <ltng:require styles="{!$Resource.agThemeAlpineCss}" />
 
-    <div style="height: 500px; width: 800px;">
+    <div style="height: calc(100vh - 200px); width: 100%;">
         <div id="myGrid" style="height: 100%; width:100%;" class="ag-theme-alpine"></div>
     </div>
 </aura:component>
