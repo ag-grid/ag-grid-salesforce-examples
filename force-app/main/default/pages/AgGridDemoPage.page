@@ -1,3 +1,0 @@
-<apex:page >
-    <c:AgGridDemoComponent ></c:AgGridDemoComponent>
-</apex:page>
